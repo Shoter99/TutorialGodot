@@ -51,6 +51,7 @@ points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 261, 333 )
+gravity = null
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 320, 160 )
