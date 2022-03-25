@@ -20,3 +20,6 @@ func calculate_vel(linear_vel: Vector2 ,dir: Vector2, speed: Vector2, is_jump_in
 	if is_jump_interupted: 
 		new_vel.y = 0.0
 	return new_vel
+
+func dash_vel():
+	pass
