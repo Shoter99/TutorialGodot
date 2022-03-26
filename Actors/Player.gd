@@ -20,3 +20,12 @@ func calculate_vel(linear_vel: Vector2 ,dir: Vector2, speed: Vector2, is_jump_in
 	if is_jump_interupted: 
 		new_vel.y = 0.0
 	return new_vel
+
+func calculate_stomp_vel(linear_vel: Vector2, impulse: float) -> Vector2:
+	var out: = linear_vel
+	out.y = -impulse
+	return out
+	
+func restart_level():
+	get_tree().reload_current_scene()
+
