@@ -4,11 +4,7 @@
 [ext_resource path="res://Actors/Enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-<<<<<<< HEAD
 extents = Vector2( 44, 14 )
-=======
-extents = Vector2( 35.5, 11.5 )
->>>>>>> parent of 907a9f5 (Merge pull request #1 from Shoter99/side_comp)
 
 [node name="Enemy" type="KinematicBody2D"]
 collision_layer = 2
@@ -36,11 +32,7 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StompDetector"]
 modulate = Color( 0, 0.203922, 1, 1 )
-<<<<<<< HEAD
 position = Vector2( 2, -82 )
-=======
-position = Vector2( 1.5, -94.5 )
->>>>>>> parent of 907a9f5 (Merge pull request #1 from Shoter99/side_comp)
 shape = SubResource( 1 )
 
 [connection signal="body_entered" from="StompDetector" to="." method="_on_StompDetector_body_entered"]
