@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://start-assets/tileset.png" type="Texture" id=1]
 [ext_resource path="res://Actors/Player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://start-assets/background.png" type="Texture" id=4]
 [ext_resource path="res://Objects/Portal.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Coin.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Actors/EnemyTurret.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/BottomBorder.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0 )
@@ -51,8 +53,6 @@ points = PoolVector2Array( 0, 0, 80, 0, 80, 80, 0, 80 )
 } ]
 0/z_index = 0
 
-[sub_resource type="RectangleShape2D" id=5]
-
 [node name="LevelTemplate" type="Node2D"]
 position = Vector2( 0, 42 )
 __meta__ = {
@@ -75,15 +75,6 @@ layer = -128
 margin_right = 40.0
 margin_bottom = 40.0
 texture = ExtResource( 4 )
-
-[node name="BottomBorder" type="Area2D" parent="."]
-position = Vector2( 1116, 2464 )
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorder"]
-position = Vector2( 2752, 20 )
-scale = Vector2( 775.2, 6.4 )
-shape = SubResource( 5 )
 
 [node name="Coins" type="Node" parent="."]
 
@@ -169,10 +160,6 @@ rotation = 2.18874
 position = Vector2( 8504, 1080 )
 rotation = 2.18874
 
-[node name="Coin29" parent="Coins" instance=ExtResource( 6 )]
-position = Vector2( 8704, 1080 )
-rotation = 2.18874
-
 [node name="Coin30" parent="Coins" instance=ExtResource( 6 )]
 position = Vector2( 8920, 1080 )
 rotation = 2.18874
@@ -210,9 +197,10 @@ position = Vector2( 10033, 1115 )
 next_scene = ExtResource( 3 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 200, 851 )
+position = Vector2( 7672, 870 )
 
-[node name="Camera2D" parent="Player" index="2"]
-limit_right = 10300
+[node name="EnemyTurret" parent="." instance=ExtResource( 7 )]
+position = Vector2( 7944, 822 )
 
-[editable path="Player"]
+[node name="BottomBorder" parent="." instance=ExtResource( 8 )]
+position = Vector2( 5408, 1774 )
