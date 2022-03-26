@@ -1,5 +1,11 @@
 extends Actor
 
+export var impuls = 1000.0
+
+func _on_EnemyDetector_area_entered(area):
+	velocity = calculate_stomp_vel(velocity, impuls)
+
+
 func _physics_process(delta) -> void:
 	var is_jump_interupted: = Input.is_action_just_released("move_up") and velocity.y < 0.0
 	var dir: = getDir() 
@@ -20,3 +26,18 @@ func calculate_vel(linear_vel: Vector2 ,dir: Vector2, speed: Vector2, is_jump_in
 	if is_jump_interupted: 
 		new_vel.y = 0.0
 	return new_vel
+
+func calculate_stomp_vel(linear_vel: Vector2, stomp_impulse: float):
+	var out: = linear_vel
+	out.y = -stomp_impulse
+	return out
+
+
+func _on_EnemyDetector_body_entered(body):
+	queue_free()
+	get_tree().reload_current_scene()
+
+
+func _on_BottomBorder_body_entered(body):
+	queue_free()
+	get_tree().reload_current_scene()
