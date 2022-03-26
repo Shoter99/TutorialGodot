@@ -9,6 +9,12 @@ func _on_EnemyDetector_area_entered(area):
 
 func _on_EnemyDetector_body_entered(body):
 	queue_free()
+	restart_level()
+
+
+func _on_BottomBorder_body_entered(body):
+	queue_free()
+	restart_level()
 
 
 func _physics_process(delta) -> void:
@@ -37,5 +43,6 @@ func calculate_stomp_vel(linear_vel: Vector2, impulse: float) -> Vector2:
 	out.y = -impulse
 	return out
 	
-
+func restart_level():
+	get_tree().reload_current_scene()
 
